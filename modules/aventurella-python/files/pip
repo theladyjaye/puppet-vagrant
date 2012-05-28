@@ -1,0 +1,4 @@
+# pip additions
+export PIP_VIRTUALENV_BASE=$HOME/.virtualenvs
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_RESPECT_VIRTUALENV=true
