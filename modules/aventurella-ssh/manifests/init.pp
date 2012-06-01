@@ -1,9 +1,9 @@
 class aventurella-ssh {
-    package{"openssh-server"
+    package{"openssh-server":
         ensure => installed
     }
 
-    package{"openssh-client"
+    package{"openssh-client":
         ensure => installed
     }
 

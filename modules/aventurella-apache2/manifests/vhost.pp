@@ -49,6 +49,7 @@ define aventurella-apache2::vhost(
         owner   => 'root',
         group   => 'root',
         mode    => '755',
+        require => Package['apache2'],
     }
 
     file {"${vdir}/${priority}-${name}":

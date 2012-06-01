@@ -4,6 +4,12 @@
 
 [core]
     excludesfile = ~/.gitignore
+    # ignore executable bit differences
+    filemode = false
+
+    # http://stackoverflow.com/questions/2825428/why-should-i-use-core-autocrlf-true-in-git
+    # http://help.github.com/line-endings/
+    autocrlf = input
 
 [color]
     ui = true
