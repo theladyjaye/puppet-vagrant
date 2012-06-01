@@ -49,6 +49,8 @@ class aventurella-php5 {
         "libapache2-mod-php5",
         "phpunit"]
 
-    package { $phpPackageList: }
+    package { $phpPackageList:
+        require => [Package['apache2'], Package['mysql-server']]
+    }
 }
 

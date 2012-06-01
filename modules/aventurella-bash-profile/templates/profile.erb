@@ -1,7 +1,6 @@
 <%= ERB.new(File.read('/home/vagrant/.profile')).result() %>
 
 # profile additions
-
 if [ -d "$HOME/profile.d" ] ; then
     for conf in $(ls -1 $HOME/profile.d)
     do

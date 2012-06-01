@@ -6,6 +6,6 @@ define aventurella-ruby::gem(
     exec {"gem install ${title}":
         path => ['/usr/bin'],
         require => Package['rubygems'],
-        unless => "gem list --local | grep ${title} -i",
+        unless => "gem list | grep ${title} -i",
     }
 }

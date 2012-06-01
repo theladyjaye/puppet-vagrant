@@ -42,12 +42,6 @@ define aventurella-apache2::vhost(
     $vdir   = '/etc/apache2/sites-enabled'
     $logdir = '/var/log/apache2'
 
-    file{$docroot:
-        ensure => directory,
-        owner => vagrant,
-        group => vagrant,
-    }
-
     file {
         "${vdir}/${name}.conf":
         content => template($template),

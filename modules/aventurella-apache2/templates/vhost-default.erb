@@ -1,18 +1,18 @@
 <VirtualHost <%= vhost_name %>:<%= vhost_port %>>
     ServerName <%= server_name %>
-    <% if server_aliases.is_a? Array -%>
-    <% server_aliases.each do |name| -%><%= "ServerAlias #{name}\n" %><% end -%>
-    <% elsif server_aliases != '' -%>
-    <%= "ServerAlias #{serveraliases}" -%>
+    <% if server_aliases.is_a? Array %>
+    <% server_aliases.each do |name| %><%= "ServerAlias #{name}\n" %><% end %>
+    <% elsif server_aliases != '' %>
+    <%= "ServerAlias #{serveraliases}" %>
     <% end -%>
     DocumentRoot <%= docroot %>
     <Directory <%= docroot %>>
         Options <%= options %>
-        <% if allow_override -%>
+        <% if allow_override %>
         AllowOverride All
-        <% else -%>
+        <% else %>
         AllowOverride None
-        <% end -%>
+        <% end %>
         Order allow,deny
         allow from all
     </Directory>
