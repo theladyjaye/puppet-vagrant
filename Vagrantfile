@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant::Config.run do |config|
-  config.vm.box = "percise64"
+  config.vm.box = "precise64"
   config.ssh.forward_agent = true
 
   # The url from where the 'config.vm.box' box will be fetched if it
