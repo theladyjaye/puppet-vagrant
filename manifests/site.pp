@@ -1,10 +1,10 @@
 #include aventurella-bash-profile
 
-
 #include aventurella-python
 #include aventurella-mysql5
 #include aventurella-php5
-#include aventurella-ruby
+
+include aventurella-ruby
 include aventurella-github
 include aventurella-git
 include aventurella-apache2
@@ -15,6 +15,8 @@ include aventurella-vim
 #aventurella-git::profile::ps1{'profile-git-ps1':}
 #aventurella-python::profile::pip{'profile-pip':}
 #aventurella-python::profile::virtualenv{'default':}
+
+aventurella-ruby::gem {'sass':}
 
 aventurella-apache2::module {'enable_apache_modules':
     modules => ['rewrite', 'ssl'],
@@ -29,13 +31,11 @@ aventurella-apache2::vhost {'vizio':
 }
 
 aventurella-git::configure{"vagrant":}
-aventurella-github::clone{'blitzagency/sandstorm.git':
-    path => '/var/www/vizio',
+aventurella-github::clone{'blitzagency/vizio-showroom.git':
+    path  => '/var/www/vizio',
     owner => 'vagrant',
     group => 'vagrant'
 }
-
-aventurella-ruby::gem {'sass':}
 
 #aventurella-python::pip{'python-modules':
 #    virtual_env => 'default',
