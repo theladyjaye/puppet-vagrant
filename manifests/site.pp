@@ -31,7 +31,7 @@ aventurella-apache2::vhost {'vizio':
 }
 
 aventurella-git::configure{"vagrant":}
-aventurella-github::clone{'blitzagency/vizio-showroom.git':
+aventurella-github::clone{'blitzagency/sandstorm.git':
     path  => '/var/www/vizio',
     owner => 'vagrant',
     group => 'vagrant'
