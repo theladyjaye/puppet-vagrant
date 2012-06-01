@@ -5,10 +5,11 @@ class aventurella-apache2 {
     }
 
     service { 'apache2':
-        name      => 'apache2',
-        ensure    => running,
-        enable    => true,
-        require   => Package['apache2']
+        name       => 'apache2',
+        ensure     => running,
+        enable     => true,
+        hasrestart => true,
+        require    => Package['apache2']
     }
 
 }

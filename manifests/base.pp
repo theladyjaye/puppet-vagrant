@@ -16,12 +16,12 @@ include aventurella-vim
 #aventurella-python::profile::pip{'profile-pip':}
 #aventurella-python::profile::virtualenv{'default':}
 
-aventurella-apache2::module{'rewrite':
+aventurella-apache2::module {'rewrite':
     enable => true
 }
 
 aventurella-apache2::vhost {'vizio':
-    docroot        => '/var/www/vizio',
+    docroot        => '/var/www/vizio/public',
     server_name    => 'vizio.com',
     server_aliases => ['www.vizio.com'],
     allow_override => true,
@@ -29,12 +29,12 @@ aventurella-apache2::vhost {'vizio':
 
 aventurella-git::configure{"vagrant":}
 aventurella-github::clone{'blitzagency/sandstorm.git':
-    path => '/var/www/vizio/www',
+    path => '/var/www/vizio',
     owner => 'vagrant',
     group => 'vagrant'
 }
 
-#aventurella-ruby::gem {'sass':}
+aventurella-ruby::gem {'sass':}
 
 #aventurella-python::pip{'python-modules':
 #    virtual_env => 'default',

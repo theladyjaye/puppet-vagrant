@@ -33,22 +33,28 @@ define aventurella-apache2::vhost(
     $options         = "Indexes FollowSymLinks MultiViews",
     $vhost_name      = '*',
     $vhost_port      = 80,
-    $allow_override  = false
+    $allow_override  = false,
+    $priority        = "000"
   ) {
 
     include aventurella-apache2
 
     # ubuntu only setup
+    $adir   = '/etc/apache2/sites-available'
     $vdir   = '/etc/apache2/sites-enabled'
     $logdir = '/var/log/apache2'
 
-    file {
-        "${vdir}/${name}.conf":
+    file {"${adir}/${name}":
         content => template($template),
         owner   => 'root',
         group   => 'root',
         mode    => '755',
-        require => Package['apache2'],
+    }
+
+    file {"${vdir}/${priority}-${name}":
+        ensure  => link,
+        target => "${adir}/${name}",
+        require => [Package['apache2'], File["${adir}/${name}"]],
         notify  => Service['apache2'],
     }
 }
