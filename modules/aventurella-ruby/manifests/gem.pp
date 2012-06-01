@@ -3,9 +3,8 @@ define aventurella-ruby::gem(
 
     include aventurella-ruby
 
-    exec {"gem install ${title}":
-        path => ['/usr/bin', '/bin'],
+    exec {"/usr/bin/gem install ${title}":
         require => Package['rubygems'],
-        unless => "gem list | grep ${title} -i",
+        unless => "/usr/bin/gem list | grep ${title} -i",
     }
 }

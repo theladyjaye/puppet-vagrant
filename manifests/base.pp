@@ -16,8 +16,9 @@ include aventurella-vim
 #aventurella-python::profile::pip{'profile-pip':}
 #aventurella-python::profile::virtualenv{'default':}
 
-aventurella-apache2::module {'rewrite':
-    enable => true
+aventurella-apache2::module {'enable_apache_modules':
+    modules => ['rewrite', 'ssl'],
+    enable => true,
 }
 
 aventurella-apache2::vhost {'vizio':
