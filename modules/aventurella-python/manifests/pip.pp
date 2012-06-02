@@ -16,7 +16,7 @@ define aventurell-python::pip_action(
     $owner
 ){
     if $virtual_env {
-        $pip = "/home/vagrant/.virtualenvs/${virtual_env}/bin/pip"
+        $pip = "/home/${owner}/.virtualenvs/${virtual_env}/bin/pip"
 
         exec { $name:
             command => "${pip} install ${name}",
