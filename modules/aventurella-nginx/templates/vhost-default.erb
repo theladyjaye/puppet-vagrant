@@ -1,0 +1,20 @@
+server{
+    listen <%= vhost_port %>;
+    server_name <%= server_name %>;
+    access_log <%= logdir %>/<%= name %>_access.log;
+    error_log <%= logdir %>/<%= name %>_error.log;
+
+   ## consider submodules(puppet) in vhost for uwsgi, etc...
+   # location /{
+   #     include uwsgi_params;
+   #     uwsgi_pass 127.0.0.1:8000;
+   #}
+
+    #location /resources{
+    #    alias /Users/aventurella/Projects/APP_constellation/orion/resources;
+    #}
+
+    #location /favicon.ico{
+    #    alias /Users/aventurella/Projects/APP_constellation/orion/resources;
+    #}
+}
